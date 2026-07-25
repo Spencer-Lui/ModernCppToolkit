@@ -1,0 +1,20 @@
+# Visual Studio
+.vs/
+
+# Build Output
+x64/
+x86/
+Debug/
+Release/
+
+# CMake
+out/
+build/
+
+# User files
+*.user
+*.VC.db
+*.VC.opendb
+
+# Temporary
+*.log
