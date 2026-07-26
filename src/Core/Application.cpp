@@ -4,24 +4,35 @@
 
 int Application::Run()
 {
-    std::vector<int> numbers;
+    std::vector<int> reserveVector;
+    reserveVector.reserve(5);
 
-    std::cout << "Initial\n";
-    std::cout << "Size     : " << numbers.size() << '\n';
-    std::cout << "Capacity : " << numbers.capacity() << "\n\n";
+    std::cout << "reserve()\n";
+    std::cout << "Size     : "
+        << reserveVector.size()
+        << '\n';
 
-    for (int i = 1; i <= 10; i++)
+    std::cout << "Capacity : "
+        << reserveVector.capacity()
+        << "\n\n";
+
+    std::vector<int> resizeVector;
+    resizeVector.resize(5);
+
+    std::cout << "resize()\n";
+    std::cout << "Size     : "
+        << resizeVector.size()
+        << '\n';
+
+    std::cout << "Capacity : "
+        << resizeVector.capacity()
+        << "\n\n";
+
+    std::cout << "Elements\n";
+
+    for (int number : resizeVector)
     {
-        numbers.push_back(i);
-
-        std::cout
-            << "Push "
-            << i
-            << " -> Size: "
-            << numbers.size()
-            << ", Capacity: "
-            << numbers.capacity()
-            << '\n';
+        std::cout << number << '\n';
     }
 
     return 0;
