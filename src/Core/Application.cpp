@@ -6,33 +6,22 @@ int Application::Run()
 {
     std::vector<int> numbers;
 
-    std::cout << "Initial Size : "
-        << numbers.size()
-        << '\n';
+    std::cout << "Initial\n";
+    std::cout << "Size     : " << numbers.size() << '\n';
+    std::cout << "Capacity : " << numbers.capacity() << "\n\n";
 
-    numbers.push_back(10);
-
-    std::cout << "After push 10 : "
-        << numbers.size()
-        << '\n';
-
-    numbers.push_back(20);
-
-    std::cout << "After push 20 : "
-        << numbers.size()
-        << '\n';
-
-    numbers.push_back(30);
-
-    std::cout << "After push 30 : "
-        << numbers.size()
-        << '\n';
-
-    std::cout << "\nElements\n";
-
-    for (int number : numbers)
+    for (int i = 1; i <= 10; i++)
     {
-        std::cout << number << '\n';
+        numbers.push_back(i);
+
+        std::cout
+            << "Push "
+            << i
+            << " -> Size: "
+            << numbers.size()
+            << ", Capacity: "
+            << numbers.capacity()
+            << '\n';
     }
 
     return 0;
