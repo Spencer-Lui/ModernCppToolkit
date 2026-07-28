@@ -1,38 +1,33 @@
+#include <algorithm>
 #include <iostream>
-#include <vector> 
+#include <vector>
+
 #include "Core/Application.h"
 
 int Application::Run()
 {
-    std::vector<int> reserveVector;
-    reserveVector.reserve(5);
+    std::vector<int> numbers;
 
-    std::cout << "reserve()\n";
-    std::cout << "Size     : "
-        << reserveVector.size()
-        << '\n';
+    numbers.push_back(10);
+    numbers.push_back(20);
+    numbers.push_back(30);
+    numbers.push_back(40);
+    numbers.push_back(50);
 
-    std::cout << "Capacity : "
-        << reserveVector.capacity()
-        << "\n\n";
+    auto it = std::find(
+        numbers.begin(),
+        numbers.end(),
+        30);
 
-    std::vector<int> resizeVector;
-    resizeVector.resize(5);
-
-    std::cout << "resize()\n";
-    std::cout << "Size     : "
-        << resizeVector.size()
-        << '\n';
-
-    std::cout << "Capacity : "
-        << resizeVector.capacity()
-        << "\n\n";
-
-    std::cout << "Elements\n";
-
-    for (int number : resizeVector)
+    if (it != numbers.end())
     {
-        std::cout << number << '\n';
+        std::cout << "Found : "
+            << *it
+            << '\n';
+    }
+    else
+    {
+        std::cout << "Not Found\n";
     }
 
     return 0;
