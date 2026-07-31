@@ -6,28 +6,29 @@
 
 int Application::Run()
 {
-    std::vector<int> numbers;
+    std::vector<int> numbers =
+    {
+        10,
+        20,
+        30,
+        40,
+        50
+    };
 
-    numbers.push_back(10);
-    numbers.push_back(20);
-    numbers.push_back(30);
-    numbers.push_back(40);
-    numbers.push_back(50);
-
-    auto it = std::find(
+    auto it = std::find_if(
         numbers.begin(),
         numbers.end(),
-        30);
+        [](int number)
+        {
+            return number > 30;
+        });
 
     if (it != numbers.end())
     {
-        std::cout << "Found : "
+        std::cout
+            << "Found : "
             << *it
             << '\n';
-    }
-    else
-    {
-        std::cout << "Not Found\n";
     }
 
     return 0;
