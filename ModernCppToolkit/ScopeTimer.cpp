@@ -24,3 +24,12 @@ ScopeTimer::~ScopeTimer()
         << " ms"
         << '\n';
 }
+
+void ScopeTimer::Checkpoint(
+    const std::string& message)
+{
+    std::cout
+        << "Checkpoint : "
+        << message
+        << '\n';
+}

@@ -11,6 +11,9 @@ public:
 
     ~ScopeTimer();
 
+    void Checkpoint(
+        const std::string& message);
+
 private:
 
     using Clock = std::chrono::steady_clock;

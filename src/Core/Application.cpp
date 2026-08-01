@@ -13,7 +13,12 @@ int Application::Run()
         ScopeTimer timer("Sleep Test");
 
         std::this_thread::sleep_for(
-            std::chrono::milliseconds(500));
+            std::chrono::milliseconds(200));
+
+        timer.Checkpoint("After 200 ms");
+
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(300));
     }
 
     // 原本 STL 的程式放下面
