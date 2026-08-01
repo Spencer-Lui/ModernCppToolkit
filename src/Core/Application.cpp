@@ -21,6 +21,23 @@ int Application::Run()
             std::chrono::milliseconds(300));
     }
 
+    {
+        ScopeTimer timer("Import CSV");
+
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(200));
+
+        timer.Checkpoint("Read File");
+
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(100));
+
+        timer.Checkpoint("Parse CSV");
+
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(50));
+    }
+
     // 原本 STL 的程式放下面
     std::vector<int> numbers =
     {

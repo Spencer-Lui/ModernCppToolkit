@@ -30,12 +30,11 @@ ScopeTimer::~ScopeTimer()
 void ScopeTimer::Checkpoint(
     const std::string& message)
 {
-    auto now = Clock::now();
+    const auto now = Clock::now();
 
-    auto duration =
-        std::chrono::duration_cast<
-        std::chrono::milliseconds>(
-            now - m_startTime);
+    const auto duration =
+        std::chrono::duration_cast<std::chrono::milliseconds>(
+            now - m_lastCheckpoint);
 
     std::cout
         << message
@@ -43,4 +42,6 @@ void ScopeTimer::Checkpoint(
         << duration.count()
         << " ms"
         << '\n';
+
+    m_lastCheckpoint = now;
 }
