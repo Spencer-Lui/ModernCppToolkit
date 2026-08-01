@@ -21,5 +21,7 @@ private:
     std::string m_taskName;
 
     Clock::time_point m_startTime;
+
+    Clock::time_point m_lastCheckpoint;
 };
 

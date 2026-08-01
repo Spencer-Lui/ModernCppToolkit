@@ -3,9 +3,11 @@
 #include <chrono>
 #include <iostream>
 
-ScopeTimer::ScopeTimer(const std::string& taskName)
+ScopeTimer::ScopeTimer(
+    const std::string& taskName)
     : m_taskName(taskName),
-    m_startTime(Clock::now())
+    m_startTime(Clock::now()),
+    m_lastCheckpoint(m_startTime)
 {
 }
 
@@ -28,8 +30,17 @@ ScopeTimer::~ScopeTimer()
 void ScopeTimer::Checkpoint(
     const std::string& message)
 {
+    auto now = Clock::now();
+
+    auto duration =
+        std::chrono::duration_cast<
+        std::chrono::milliseconds>(
+            now - m_startTime);
+
     std::cout
-        << "Checkpoint : "
         << message
+        << " : "
+        << duration.count()
+        << " ms"
         << '\n';
 }
