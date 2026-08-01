@@ -7,8 +7,7 @@ class ScopeTimer
 {
 public:
 
-    explicit ScopeTimer(
-        const std::string& taskName);
+    explicit ScopeTimer(const std::string& taskName);
 
     ~ScopeTimer();
 

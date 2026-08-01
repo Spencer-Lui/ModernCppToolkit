@@ -1,11 +1,22 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <thread>
+
+#include "../ModernCppToolkit/ScopeTimer.h"
 
 #include "Core/Application.h"
 
 int Application::Run()
 {
+    {
+        ScopeTimer timer("Sleep Test");
+
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(500));
+    }
+
+    // 原本 STL 的程式放下面
     std::vector<int> numbers =
     {
         5,
