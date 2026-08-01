@@ -1,5 +1,6 @@
 #pragma once
 
+#include <chrono>
 #include <string>
 
 class ScopeTimer
@@ -13,6 +14,10 @@ public:
 
 private:
 
+    using Clock = std::chrono::steady_clock;
+
     std::string m_taskName;
+
+    Clock::time_point m_startTime;
 };
 
