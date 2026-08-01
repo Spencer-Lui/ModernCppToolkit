@@ -2,9 +2,10 @@
 #include <iostream>
 #include <vector>
 #include <thread>
+#include <memory>
 
 #include "../ModernCppToolkit/ScopeTimer.h"
-
+#include "../ModernCppToolkit/Car.h"
 #include "Core/Application.h"
 
 int Application::Run()
@@ -44,6 +45,16 @@ int Application::Run()
     std::cout
         << *number
         << '\n';
+
+    {
+        auto car =
+            std::make_unique<Car>();
+
+        car->Drive();
+    }
+
+    std::cout
+        << "Application End\n";
 
     return 0;
 }
