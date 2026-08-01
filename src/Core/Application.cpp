@@ -8,27 +8,25 @@ int Application::Run()
 {
     std::vector<int> numbers =
     {
-        10,
-        20,
-        30,
-        40,
-        50
+        5,
+        1,
+        8,
+        2,
+        9,
+        3
     };
 
-    auto it = std::find_if(
+    std::sort(
         numbers.begin(),
         numbers.end(),
-        [](int number)
+        [](int left, int right)
         {
-            return number > 30;
+            return left < right;
         });
 
-    if (it != numbers.end())
+    for (int number : numbers)
     {
-        std::cout
-            << "Found : "
-            << *it
-            << '\n';
+        std::cout << number << '\n';
     }
 
     return 0;
