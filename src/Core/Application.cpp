@@ -38,29 +38,12 @@ int Application::Run()
             std::chrono::milliseconds(50));
     }
 
-    // 原本 STL 的程式放下面
-    std::vector<int> numbers =
-    {
-        5,
-        1,
-        8,
-        2,
-        9,
-        3
-    };
+    auto number =
+        std::make_unique<int>(100);
 
-    std::sort(
-        numbers.begin(),
-        numbers.end(),
-        [](int left, int right)
-        {
-            return left < right;
-        });
-
-    for (int number : numbers)
-    {
-        std::cout << number << '\n';
-    }
+    std::cout
+        << *number
+        << '\n';
 
     return 0;
 }

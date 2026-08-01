@@ -2,6 +2,7 @@
 
 #include <chrono>
 #include <iostream>
+#include <memory>
 
 ScopeTimer::ScopeTimer(
     const std::string& taskName)
