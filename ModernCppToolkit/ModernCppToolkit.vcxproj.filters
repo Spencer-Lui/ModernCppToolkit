@@ -31,6 +31,15 @@
     <ClCompile Include="..\src\STL\VectorUtilities.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="ScopeTimer.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="Car.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VectorExample.h">
@@ -40,6 +49,15 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="..\include\STL\VectorUtilities.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="ScopeTimer.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Car.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>

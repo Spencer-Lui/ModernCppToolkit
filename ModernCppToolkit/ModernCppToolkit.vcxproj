@@ -146,12 +146,18 @@
   <ItemGroup>
     <ClCompile Include="..\src\Core\Application.cpp" />
     <ClCompile Include="..\src\STL\VectorUtilities.cpp" />
+    <ClCompile Include="Car.cpp" />
+    <ClCompile Include="Engine.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ScopeTimer.cpp" />
     <ClCompile Include="VectorExample.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Core\Application.h" />
     <ClInclude Include="..\include\STL\VectorUtilities.h" />
+    <ClInclude Include="Car.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="ScopeTimer.h" />
     <ClInclude Include="VectorExample.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
