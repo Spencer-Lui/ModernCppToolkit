@@ -6,6 +6,7 @@
 
 #include "../ModernCppToolkit/ScopeTimer.h"
 #include "../ModernCppToolkit/Car.h"
+#include "../ModernCppToolkit/Person.h"
 #include "Core/Application.h"
 
 int Application::Run()
@@ -55,6 +56,10 @@ int Application::Run()
 
     std::cout
         << "Application End\n";
+
+    Person p1("Michael");
+
+    Person p2 = p1;
 
     return 0;
 }

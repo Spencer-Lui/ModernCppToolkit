@@ -40,6 +40,9 @@
     <ClCompile Include="Engine.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="Person.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VectorExample.h">
@@ -58,6 +61,9 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="Engine.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Person.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>
