@@ -59,7 +59,7 @@ int Application::Run()
 
     Person p1("Michael");
 
-    Person p2 = p1;
+    Person p2(std::move(p1));
 
     return 0;
 }

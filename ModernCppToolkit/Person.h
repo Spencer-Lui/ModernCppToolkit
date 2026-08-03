@@ -21,6 +21,13 @@ public:
             << "Copy Constructor\n";
     }
 
+    Person(Person&& other)
+        : m_name(std::move(other.m_name))
+    {
+        std::cout
+            << "Move Constructor\n";
+    }
+
     ~Person()
     {
         std::cout
