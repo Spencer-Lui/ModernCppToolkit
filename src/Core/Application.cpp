@@ -63,7 +63,7 @@ int Application::Run()
 
     Person p2(std::move(p1));
 
-    {
+    /*{
         ScopeTimer timer("Copy Test");
 
         LargeBuffer buffer(10000000);
@@ -77,6 +77,21 @@ int Application::Run()
         LargeBuffer buffer(10000000);
 
         LargeBuffer move = std::move(buffer);
+    }*/
+
+    std::vector<LargeBuffer> buffers;
+
+    buffers.reserve(20);
+
+    {
+        ScopeTimer timer("Move Push");
+
+        for (int i = 0; i < 20; i++)
+        {
+            LargeBuffer buffer(1000000);
+
+            buffers.push_back(std::move(buffer));
+        }
     }
 
     return 0;
