@@ -4,9 +4,11 @@
 #include <thread>
 #include <memory>
 
+
+#include "../ModernCppToolkit/LargeBuffer.h"
 #include "../ModernCppToolkit/ScopeTimer.h"
-#include "../ModernCppToolkit/Car.h"
 #include "../ModernCppToolkit/Person.h"
+#include "../ModernCppToolkit/Car.h"
 #include "Core/Application.h"
 
 int Application::Run()
@@ -60,6 +62,22 @@ int Application::Run()
     Person p1("Michael");
 
     Person p2(std::move(p1));
+
+    {
+        ScopeTimer timer("Copy Test");
+
+        LargeBuffer buffer(10000000);
+
+        LargeBuffer copy = buffer;
+    }
+
+    {
+        ScopeTimer timer("Move Test");
+
+        LargeBuffer buffer(10000000);
+
+        LargeBuffer move = std::move(buffer);
+    }
 
     return 0;
 }
