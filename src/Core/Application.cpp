@@ -3,6 +3,8 @@
 #include <vector>
 #include <thread>
 #include <memory>
+#include <string>
+#include <map>
 
 
 #include "../ModernCppToolkit/LargeBuffer.h"
@@ -79,19 +81,69 @@ int Application::Run()
         LargeBuffer move = std::move(buffer);
     }*/
 
-    std::vector<LargeBuffer> buffers;
+    std::map<int, std::string> students;
 
-    buffers.reserve(20);
+    students[1001] = "Michael";
 
+    students[1002] = "John";
+
+    students[1003] = "Mary";
+
+    for (const auto& student : students)
     {
-        ScopeTimer timer("Move Push");
+        std::cout
+            << student.first
+            << " : "
+            << student.second
+            << '\n';
+    }
 
-        for (int i = 0; i < 20; i++)
-        {
-            LargeBuffer buffer(1000000);
 
-            buffers.push_back(std::move(buffer));
-        }
+    std::map<int, std::string> didTable;
+
+    didTable[0xF190] = "VIN";
+    didTable[0xF187] = "Part Number";
+    didTable[0xF18C] = "ECU Serial";
+
+    for (const auto& did : didTable)
+    {
+        std::cout
+            << did.first
+            << " : "
+            << did.second
+            << '\n';
+    }
+
+
+    std::cout << "\nFind DID 0xF190\n";
+
+    auto it = didTable.find(0xF190);
+
+    if (it != didTable.end())
+    {
+        std::cout
+            << it->first
+            << " : "
+            << it->second
+            << '\n';
+    }
+
+
+    std::cout << "\nFind DID 0x1234\n";
+
+    auto notFound = didTable.find(0x1234);
+
+    if (notFound != didTable.end())
+    {
+        std::cout
+            << notFound->second
+            << '\n';
+    }
+    else
+    {
+        std::cout
+            << "Not Found"
+            << '\n';
     }
 
     return 0;
