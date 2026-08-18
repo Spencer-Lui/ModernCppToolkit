@@ -1,3 +1,4 @@
+#include <unordered_map>
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -99,7 +100,7 @@ int Application::Run()
     }
 
 
-    std::map<int, std::string> didTable;
+    /*std::map<int, std::string> didTable;
 
     didTable[0xF190] = "VIN";
     didTable[0xF187] = "Part Number";
@@ -112,10 +113,10 @@ int Application::Run()
             << " : "
             << did.second
             << '\n';
-    }
+    }*/
 
 
-    std::cout << "\nFind DID 0xF190\n";
+    /*std::cout << "\nFind DID 0xF190\n";
 
     auto it = didTable.find(0xF190);
 
@@ -143,6 +144,23 @@ int Application::Run()
     {
         std::cout
             << "Not Found"
+            << '\n';
+    }*/
+
+
+    std::unordered_map<int, std::string> didTable;
+
+    didTable[0xF190] = "VIN";
+    didTable[0xF187] = "Part Number";
+    didTable[0xF18C] = "ECU Serial";
+
+    for (const auto& did : didTable)
+    {
+        std::cout
+            << std::hex
+            << did.first
+            << " : "
+            << did.second
             << '\n';
     }
 
