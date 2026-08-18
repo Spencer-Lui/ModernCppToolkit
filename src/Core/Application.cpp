@@ -169,7 +169,7 @@ int Application::Run()
 
 
 
-    std::set<int> numbers;
+    /*std::set<int> numbers;
 
     numbers.insert(30);
     numbers.insert(10);
@@ -188,10 +188,10 @@ int Application::Run()
     if (it != numbers.end())
     {
         std::cout << "Found : " << *it << '\n';
-    }
+    }*/
 
 
-    std::optional<int> number;
+    /*std::optional<int> number;
 
     if (number.has_value())
     {
@@ -203,6 +203,31 @@ int Application::Run()
     {
         std::cout
             << "No Value"
+            << '\n';
+    }*/
+
+
+    std::vector<int> numbers =
+    {
+        5,
+        1,
+        8,
+        3,
+        2
+    };
+
+    std::sort(
+        numbers.begin(),
+        numbers.end(),
+        [](int left, int right)
+        {
+            return left < right;
+        });
+
+    for (int value : numbers)
+    {
+        std::cout
+            << value
             << '\n';
     }
 
