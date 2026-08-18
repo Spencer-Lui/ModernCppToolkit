@@ -6,6 +6,7 @@
 #include <memory>
 #include <string>
 #include <map>
+#include <set>
 
 
 #include "../ModernCppToolkit/LargeBuffer.h"
@@ -162,6 +163,30 @@ int Application::Run()
             << " : "
             << did.second
             << '\n';
+    }
+
+
+
+
+    std::set<int> numbers;
+
+    numbers.insert(30);
+    numbers.insert(10);
+    numbers.insert(20);
+    numbers.insert(10);
+    numbers.insert(30);
+
+    for (const auto number : numbers)
+    {
+        std::cout << number << '\n';
+    }
+
+
+    auto it = numbers.find(20);
+
+    if (it != numbers.end())
+    {
+        std::cout << "Found : " << *it << '\n';
     }
 
     return 0;
