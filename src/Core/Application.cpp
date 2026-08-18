@@ -1,6 +1,7 @@
 #include <unordered_map>
 #include <algorithm>
 #include <iostream>
+#include <optional>
 #include <vector>
 #include <thread>
 #include <memory>
@@ -46,12 +47,12 @@ int Application::Run()
             std::chrono::milliseconds(50));
     }
 
-    auto number =
+    /*auto number =
         std::make_unique<int>(100);
 
     std::cout
         << *number
-        << '\n';
+        << '\n';*/
 
     {
         auto car =
@@ -187,6 +188,22 @@ int Application::Run()
     if (it != numbers.end())
     {
         std::cout << "Found : " << *it << '\n';
+    }
+
+
+    std::optional<int> number;
+
+    if (number.has_value())
+    {
+        std::cout
+            << number.value()
+            << '\n';
+    }
+    else
+    {
+        std::cout
+            << "No Value"
+            << '\n';
     }
 
     return 0;
