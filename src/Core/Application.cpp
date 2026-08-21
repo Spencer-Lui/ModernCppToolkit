@@ -1,4 +1,5 @@
 #include <unordered_map>
+#include <functional>
 #include <algorithm>
 #include <iostream>
 #include <optional>
@@ -19,19 +20,17 @@
 int Application::Run()
 {
     
-    int value = 10;
+    std::function<int(int, int)> add;
 
-    auto print =
-        [value]()
+    add =
+        [](int a, int b)
         {
-            std::cout
-                << value
-                << '\n';
+            return a + b;
         };
 
-    value = 20;
-
-    print();
+    std::cout
+        << add(10, 20)
+        << '\n';
 
     return 0;
 }
