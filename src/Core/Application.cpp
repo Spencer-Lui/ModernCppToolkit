@@ -11,11 +11,13 @@
 #include <set>
 
 
+#include "../ModernCppToolkit/EventDispatcher.h"
 #include "../ModernCppToolkit/LargeBuffer.h"
 #include "../ModernCppToolkit/ScopeTimer.h"
 #include "../ModernCppToolkit/Person.h"
 #include "../ModernCppToolkit/Car.h"
 #include "Core/Application.h"
+
 
 int Application::Run()
 {
@@ -31,6 +33,30 @@ int Application::Run()
     std::cout
         << add(10, 20)
         << '\n';
+
+    EventDispatcher dispatcher;
+
+    dispatcher.Register(
+        "Hello",
+        []()
+        {
+            std::cout
+                << "Hello World\n";
+        });
+
+    dispatcher.Dispatch("Hello");
+
+    dispatcher.Register(
+        "Bye",
+        []()
+        {
+            std::cout
+                << "Good Bye\n";
+        });
+
+    dispatcher.Dispatch("Hello");
+
+    dispatcher.Dispatch("Bye");
 
     return 0;
 }
