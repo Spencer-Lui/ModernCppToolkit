@@ -37,26 +37,23 @@ int Application::Run()
     EventDispatcher dispatcher;
 
     dispatcher.Register(
-        "Hello",
-        []()
+        "Number",
+        [](int value)
         {
             std::cout
-                << "Hello World\n";
+                << "Receive : "
+                << value
+                << '\n';
         });
 
-    dispatcher.Dispatch("Hello");
+    dispatcher.Dispatch(
+        "Number",
+        100);
 
-    dispatcher.Register(
-        "Bye",
-        []()
-        {
-            std::cout
-                << "Good Bye\n";
-        });
+    dispatcher.Dispatch(
+        "Number",
+        999);
 
-    dispatcher.Dispatch("Hello");
-
-    dispatcher.Dispatch("Bye");
 
     return 0;
 }

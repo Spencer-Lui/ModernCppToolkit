@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="ModernCppToolkit/ModernCppToolkit.vcxproj" />
+  <Project Path="ModernCppToolkit/ModernCppToolkit.vcxproj" Id="8f3c4885-b8a5-4934-baae-5de1db2db3ae" />
 </Solution>

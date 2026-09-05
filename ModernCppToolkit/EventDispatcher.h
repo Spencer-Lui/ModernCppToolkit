@@ -10,14 +10,15 @@ public:
 
     void Register(
         const std::string& eventName,
-        std::function<void()> callback);
+        std::function<void(int)> callback);
 
     void Dispatch(
-        const std::string& eventName);
+        const std::string& eventName,
+        int value);
 
 private:
 
     std::unordered_map<
         std::string,
-        std::function<void()>> m_events;
+        std::function<void(int)>> m_events;
 };
