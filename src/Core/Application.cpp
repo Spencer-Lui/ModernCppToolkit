@@ -9,12 +9,15 @@
 #include <string>
 #include <map>
 #include <set>
+#include <chrono>
+#include <iomanip>
 
 
 #include "../ModernCppToolkit/EventDispatcher.h"
 #include "../ModernCppToolkit/LargeBuffer.h"
 #include "../ModernCppToolkit/ScopeTimer.h"
 #include "../ModernCppToolkit/Person.h"
+#include "../ModernCppToolkit/Logger.h"
 #include "../ModernCppToolkit/Car.h"
 #include "Core/Application.h"
 
@@ -54,6 +57,20 @@ int Application::Run()
         "Number",
         999);
 
+
+    Logger logger;
+
+    logger.Info(
+        "Application Start");
+
+    logger.Warning(
+        "Config File Missing");
+
+    logger.Error(
+        "Connect ECU Failed");
+
+
+    
 
     return 0;
 }
