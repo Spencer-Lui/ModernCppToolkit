@@ -1,48 +1,49 @@
 #include "ScopeTimer.h"
 
 #include <chrono>
-#include <iostream>
-#include <memory>
+#include <string>
 
 ScopeTimer::ScopeTimer(
-    const std::string& taskName)
-    : m_taskName(taskName),
-    m_startTime(Clock::now()),
-    m_lastCheckpoint(m_startTime)
+    Logger& logger,
+    const std::string& name)
+    : m_logger(logger),
+    m_name(name),
+    m_start(std::chrono::steady_clock::now())
 {
+    m_logger.Info(m_name + " started");
 }
 
 ScopeTimer::~ScopeTimer()
 {
-    auto endTime = Clock::now();
+    auto end = std::chrono::steady_clock::now();
 
-    auto duration =
-        std::chrono::duration_cast<std::chrono::milliseconds>(
-            endTime - m_startTime);
+    auto elapsed =
+        std::chrono::duration_cast<
+        std::chrono::milliseconds>(
+            end - m_start);
 
-    std::cout
-        << m_taskName
-        << " : "
-        << duration.count()
-        << " ms"
-        << '\n';
+    m_logger.Info(
+        m_name +
+        " finished : " +
+        std::to_string(elapsed.count()) +
+        " ms");
 }
 
 void ScopeTimer::Checkpoint(
     const std::string& message)
 {
-    const auto now = Clock::now();
+    auto now = std::chrono::steady_clock::now();
 
-    const auto duration =
-        std::chrono::duration_cast<std::chrono::milliseconds>(
-            now - m_lastCheckpoint);
+    auto elapsed =
+        std::chrono::duration_cast<
+        std::chrono::milliseconds>(
+            now - m_start);
 
-    std::cout
-        << message
-        << " : "
-        << duration.count()
-        << " ms"
-        << '\n';
-
-    m_lastCheckpoint = now;
+    m_logger.Info(
+        m_name +
+        " - " +
+        message +
+        " : " +
+        std::to_string(elapsed.count()) +
+        " ms");
 }

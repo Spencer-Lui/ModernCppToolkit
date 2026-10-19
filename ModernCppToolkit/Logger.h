@@ -13,3 +13,4 @@ public:
     void Error(const std::string& message);
 };
 
+

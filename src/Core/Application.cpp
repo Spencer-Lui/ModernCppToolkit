@@ -60,14 +60,22 @@ int Application::Run()
 
     Logger logger;
 
-    logger.Info(
-        "Application Start");
+    {
+        ScopeTimer timer(logger, "Import CSV");
 
-    logger.Warning(
-        "Config File Missing");
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(200));
 
-    logger.Error(
-        "Connect ECU Failed");
+        timer.Checkpoint("Read File");
+
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(100));
+
+        timer.Checkpoint("Parse CSV");
+
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(50));
+    }
 
 
     

@@ -5,7 +5,6 @@
 #include <iostream>
 #include <sstream>
 
-#include <iostream>
 
 namespace
 {
